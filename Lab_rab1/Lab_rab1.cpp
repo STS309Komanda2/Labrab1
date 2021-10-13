@@ -7,21 +7,30 @@
 #include <string>
 #include <string>
 using namespace std;
-int main()
-{
-    
-}
 
-int GenArray(float x0, float xi, int N)
+void GenArray(double x0, double xi, int N)
 {
 	stringstream ss;
 	string str;
 	for (int i = 1; i <= N; i++)
 	{
+		ss.clear();
 		x0 *= xi;
-		ss << 
+		ss << fixed << setprecision(10) << x0;
+		x0 = xi;
+		str = "0." + ss.str().substr(4,5);
+		ss.str(str);
+		ss >> xi;
+		cout << setw(8) << fixed << setprecision(5) << xi;
 	}
+	cout << endl;
 }
+int main()
+{
+
+}
+
+
 
 // Запуск программы: CTRL+F5 или меню "Отладка" > "Запуск без отладки"
 // Отладка программы: F5 или меню "Отладка" > "Запустить отладку"
